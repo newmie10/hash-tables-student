@@ -17,7 +17,6 @@ import java.util.HashSet;
  */
 public class SimpleHashMap<K, V> implements SimpleMap<K, V> {
     private ChainingHashTable<SimpleMapEntry<K, V>> table;
-    int size1 = 0;
 
     public SimpleHashMap() {
         table = new ChainingHashTable<>();
@@ -50,7 +49,6 @@ public class SimpleHashMap<K, V> implements SimpleMap<K, V> {
     public V getOrDefault(K k, V defaultValue) {
         SimpleMapEntry<K, V> entry1 = new SimpleMapEntry<>(k, null);
         if (table.get(entry1) == null) {
-            table.add(new SimpleMapEntry<>(k, defaultValue));
             return defaultValue;
         }
         return (table.get(entry1).v);
